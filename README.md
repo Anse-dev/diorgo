@@ -25,5 +25,73 @@ Assurez-vous d'avoir les éléments suivants installés sur votre machine :
 
    ```sh
    git clone https://github.com/anse-dev/diorgo.git
-   
+
    ```
+
+
+2. Clonez le repository :
+
+   ```sh
+    flutter pub get
+
+   ```
+3.Configuration API
+Assurez-vous de configurer les URL des API dans les fichiers appropriés (par exemple, auth_repository.dart) :
+```
+final response = await client.post(
+  Uri.parse('https://api.example.com/login'),
+  body: {'email': email, 'password': password},
+);
+
+```
+Remplacez`` https://api.example.com`` par l'URL de votre API.
+
+## Structure du Projet
+
+```
+lib/
+|-- core/
+|   |-- theme.dart
+|   |-- routes.dart
+|   |-- widgets/
+|       |-- custom_button.dart
+|-- features/
+|   |-- authentication/
+|   |   |-- presentation/
+|   |   |   |-- login_page.dart
+|   |   |   |-- register_page.dart
+|   |   |-- application/
+|   |   |   |-- auth_controller.dart
+|   |   |-- domain/
+|   |   |   |-- auth_repository.dart
+|   |   |-- infrastructure/
+|   |       |-- auth_api.dart
+|   |-- booking/
+|   |   |-- presentation/
+|   |   |   |-- booking_page.dart
+|   |   |   |-- booking_form.dart
+|   |   |-- application/
+|   |   |   |-- booking_controller.dart
+|   |   |-- domain/
+|   |   |   |-- booking_repository.dart
+|   |   |-- infrastructure/
+|   |       |-- booking_api.dart
+|   |-- menu/
+|   |   |-- presentation/
+|   |   |   |-- menu_page.dart
+|   |   |   |-- menu_item_widget.dart
+|   |   |-- application/
+|   |   |   |-- menu_controller.dart
+|   |   |-- domain/
+|   |   |   |-- menu_repository.dart
+|   |   |-- infrastructure/
+|   |       |-- menu_api.dart
+main.dart
+```
+
+## Démarrage
+
+```
+
+flutter run
+```
